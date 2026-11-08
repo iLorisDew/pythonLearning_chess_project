@@ -2,10 +2,12 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Self
 
+
 class Color(Enum):
     BLACK = "b"
     WHITE = "w"
-    
+
+
 class PieceType(Enum):
     PAWN = "p"
     KNIGHT = "n"
@@ -13,12 +15,13 @@ class PieceType(Enum):
     ROOK = "r"
     QUEEN = "q"
     KING = "k"
-    
+
+
 @dataclass(frozen=True)
 class Piece:
     color: Color
     kind: PieceType
-    
+
     @classmethod
     def from_symbol(cls, symbol: str) -> Self:
         color = Color.WHITE if symbol.isupper() else Color.BLACK
